@@ -6,8 +6,8 @@ public abstract class Veiculo {
     private String placa;
     private String marca;
     private String modelo;
-    private double valorDiaria;
-    private StatusVeiculo status;
+    protected double valorDiaria;
+    protected StatusVeiculo status;
 
     // Construtor
     public Veiculo(String placa, String marca, String modelo, double valorDiaria, StatusVeiculo status) {

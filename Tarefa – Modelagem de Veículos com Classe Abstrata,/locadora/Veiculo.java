@@ -70,6 +70,24 @@ public abstract class Veiculo {
         System.out.println("=======================================");
     }
 
-    // Método abstrato
+    public void enviarParaManutencao() {
+        if (this.status != StatusVeiculo.LOCADO) {
+            this.setStatus(StatusVeiculo.MANUTENCAO);
+            System.out.println("Veículo " + getPlaca() + " enviado para manutenção.");
+        } else {
+            System.out.println("ERRO: Veículo " + getPlaca() + " está locado, não pode ir para manutenção.");
+        }
+    }
+
+    public void retirarDaManutencao() {
+
+        if (this.status == StatusVeiculo.MANUTENCAO) {
+            this.setStatus(StatusVeiculo.DISPONIVEL); // Volta a ficar disponível
+            System.out.println("Veículo " + getPlaca() + " retirado da manutenção.");
+        } else {
+            System.out.println("ERRO: Veículo " + getPlaca() + " não estava em manutenção.");
+        }
+    }
     public abstract double calcularDiariaComDesconto();
 }
+

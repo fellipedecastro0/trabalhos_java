@@ -21,8 +21,12 @@ public class Carro extends Veiculo implements Locavel {
 
     @Override
     public void iniciarLocacao() {
-        status = StatusVeiculo.LOCADO;
-        System.out.println("Locação iniciada para o carro: " + getModelo());
+        if (verificarDisponibilidade()) {
+            setStatus(StatusVeiculo.LOCADO);
+            System.out.println("Locação iniciada para o carro: " + getModelo());
+        } else {
+            System.out.println("Falha! Carro " + getPlaca() + " não está disponível (Status: " + getStatus() + ")");
+        }
     }
 
     @Override

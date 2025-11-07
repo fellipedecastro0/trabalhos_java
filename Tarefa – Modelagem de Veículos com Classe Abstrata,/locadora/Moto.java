@@ -28,7 +28,12 @@ public class Moto extends Veiculo implements Locavel {
 
     @Override
     public void iniciarLocacao() {
-        setStatus(StatusVeiculo.LOCADO);
+        if (verificarDisponibilidade()) {
+            setStatus(StatusVeiculo.LOCADO);
+            System.out.println("Locação iniciada para a moto: " + getModelo()); // Adicionando uma mensagem
+        } else {
+            System.out.println("Falha! Moto " + getPlaca() + " não está disponível (Status: " + getStatus() + ")");
+        }
     }
 
     @Override
